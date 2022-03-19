@@ -53,7 +53,7 @@ client.on('message', message => { if (message.content === '!ping') { message.cha
 
 client.on('message',function(message){
   if (message.content.startsWith('!define fuck')){
-    message.channel.send('verb: to have sex with (someone). noun: an act or instance of having sex.')
+    message.channel.send('verb: to have sex with (someone). noun: an act or instance of having sex.   If you say "fuck you", you are saying I want to have sex with you.')
   }
 })
 
