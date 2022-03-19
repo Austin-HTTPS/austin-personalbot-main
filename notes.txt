@@ -1,0 +1,62 @@
+/////////////////////////////////// Change bot avatar and username
+
+const { MessageEmbed } = require("discord.js");
+module.exports = {
+  name: "eval",
+  run: async (client, message, args) => {
+
+    const access = ["599336348381609984"]
+    if(!access.includes(message.author.id)) return;
+
+    try {
+      const code = args.join(" ");
+      if (!code) {
+        return message.channel.send("you're missing an argument to evaluate");
+      }
+      let evaled = eval(code);
+
+      if (typeof evaled !== "string") evaled = require("util").inspect(evaled);
+
+      let embed = new MessageEmbed()
+        .addField("Input", `\`\`\`${code}\`\`\``)
+        .addField("Output", `\`\`\`${evaled}\`\`\``)
+      message.channel.send({ embeds: [embed] });
+    } catch (err) {
+      message.channel.send(`\`i've ran into an error:\` \`\`\`xl\n${err}\n\`\`\``);
+    }
+  },
+};
+
+//////////////////////////////////////////
+
+process.once('beforeExit', () => {
+  setTimeout(function(){
+    client.login(process.env.TOKEN)
+    console.log('Coming back...')
+    .catch(console.error);
+  },3000)
+});
+
+////////////////////////////////////////
+
+client.on('message',function(message){
+  if (message.content.startsWith('!command.random[start.repeat]')){
+    message.channel.send('<:pepeangry:952692332984143904> WHY WOULD YOU DO THIS!?')
+  }
+})
+
+client.on('message',function(message){
+  if (message.content.startsWith('<:pepeangry:952692332984143904>')){
+    message.channel.send('!command.random[start.repeat]')
+  }
+})
+
+////////////
+
+client.on('message',function(message){
+  if (message.content.startsWith('!define fuck')){
+    message.channel.send('verb: to have sex with (someone). noun: an act or instance of having sex.')
+  }
+})
+
+///////////////////////////////////////
