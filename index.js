@@ -49,7 +49,7 @@ client.on('message',function(message){
   }
 })
 
-client.on('message', message => { if (message.content === '!ping') { message.channel.send(`Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`); } });
+client.on('message', message => { if (message.content === '!ping') { message.channel.send(`Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms.`); } });
 
 client.on('message',function(message){
   if (message.content.startsWith('!define fuck')){
